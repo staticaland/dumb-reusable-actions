@@ -68,6 +68,16 @@ jobs:
             core.setOutput('author', "Mickey Mouse")
 
 
+  static_outputs:
+
+    name: Load static output variables
+    runs-on: ubuntu-latest
+
+    outputs:
+      version: "1.0"
+      author: "Mickey Mouse"
+
+
   call_workflow_with_dotenv_outputs:
 
     needs: dotenv_outputs
@@ -102,3 +112,15 @@ jobs:
 
     with:
       author: ${{ needs.action_script_outputs.outputs.author }}
+
+
+  call_workflow_with_static_outputs:
+
+    needs: static_outputs
+
+    name: Call reusable workflow with Action script output variables
+
+    uses: staticaland/dumb-reusable-actions/.github/workflows/reusable-workflow.yml@main
+
+    with:
+      author: ${{ needs.static_outputs.outputs.author }}
