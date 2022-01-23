@@ -54,7 +54,7 @@ jobs:
     uses: staticaland/dumb-reusable-actions/.github/workflows/reusable-workflow.yml@main
 
     with:
-      author: ${{ needs.dotenv.outputs.author }}
+      author: ${{ needs.dotenv_outputs.outputs.author }}
 
 
   call_workflow_with_script_outputs:
