@@ -10,12 +10,17 @@ jobs:
     name: Dotenv
     runs-on: ubuntu-latest
 
+    outputs:
+      verion: ${{ steps.env.outputs.version }}
+      author: ${{ steps.env.outputs.author }}
+
     steps:
 
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Dotenv Action
+        id: env
         uses: falti/dotenv-action@v0.2.7
         with:
           log-variables: true
@@ -28,3 +33,4 @@ jobs:
     steps:
       - name: Try
         run: echo ${{ needs.dotenv.outputs.version }} ${{ needs.dotenv.outputs.dog }}
+        
