@@ -1,8 +1,14 @@
+def set_output(key, value):
+    return f"::set-output name={key}::{value}"
+
+
 def main():
 
-    print("::set-output name=version::1.0")
-    print("::set-output name=author::Mickey Mouse")
-
+    outputs = { "version": "1.0", "author": "Mickey Mouse"}
+    
+    for key, value in outputs.items():
+        s = set_output(key, value)
+        print(s)
 
 if __name__ == "__main__":
     main()
