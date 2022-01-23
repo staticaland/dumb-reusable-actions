@@ -1,0 +1,15 @@
+on:
+  workflow_call:
+    inputs:
+      author:
+        required: true
+        type: string
+
+jobs:
+
+  reuse:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo ${{ inputs.author }}

@@ -31,6 +31,6 @@ jobs:
     needs: dotenv
 
     steps:
-      - name: Try
-        run: echo ${{ needs.dotenv.outputs.version }} ${{ needs.dotenv.outputs.author }}
-        
+      - uses: ./.github/actions/reuse-me@main
+        with:
+          author: ${{ needs.dotenv.outputs.author }}
