@@ -123,7 +123,7 @@ jobs:
 
     needs: static_outputs
 
-    name: Call reusable workflow with Action script output variables
+    name: Call reusable workflow with static output variables
 
     uses: staticaland/dumb-reusable-actions/.github/workflows/reusable-workflow.yml@main
 
