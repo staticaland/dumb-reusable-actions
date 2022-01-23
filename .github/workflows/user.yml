@@ -1,0 +1,23 @@
+on:
+
+  push:
+    branches: [main]
+
+jobs:
+
+  dotenv:
+
+    name: Dotenv
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Dotenv Action
+        uses: falti/dotenv-action@v0.2.7
+
+  dumb:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Try
+        run: echo ${{ jobs.dotenv.outputs.version }}
