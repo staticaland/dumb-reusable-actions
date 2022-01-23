@@ -26,6 +26,26 @@ jobs:
           log-variables: true
 
 
+  python_outputs:
+
+    name: Load Python output variables
+    runs-on: ubuntu-latest
+
+    outputs:
+      version: ${{ steps.python.outputs.version }}
+      author: ${{ steps.python.outputs.author }}
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use script for output variables
+        id: python
+        shell: python
+        run: .github/workflows/set_output_variables.py
+
+
   script_outputs:
 
     name: Load script output variables
@@ -119,6 +139,18 @@ jobs:
       author: ${{ needs.action_script_outputs.outputs.author }}
 
 
+  call_workflow_with_python_outputs:
+
+    needs: python_outputs
+
+    name: Call reusable workflow with script output variables
+
+    uses: staticaland/dumb-reusable-actions/.github/workflows/reusable-workflow.yml@main
+
+    with:
+      author: ${{ needs.python_outputs.outputs.author }}
+
+  
   call_workflow_with_static_outputs:
 
     needs: static_outputs
