@@ -25,12 +25,9 @@ jobs:
         with:
           log-variables: true
 
-  dumb:
 
-    runs-on: ubuntu-latest
+  call-workflow-passing-data:
     needs: dotenv
-
-    steps:
-      - uses: ./.github/actions/reuse-me@main
-        with:
-          author: ${{ needs.dotenv.outputs.author }}
+    uses: staticaland/dumb-reusable-actions/.github/workflows/reuse-me.yml@main
+    with:
+      author: ${{ needs.dotenv.outputs.author }}
