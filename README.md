@@ -13,6 +13,7 @@ Here are some ways to pass variables from caller workflow to reusable workflows 
     - Heavy on dependencies ➖
 - Using a shell script with `::set-output`
     - Ugly syntax which decreases readability ➖
+    - Not possible to use `shfmt` on the code ➖
 - Using the [GitHub Script Action](https://github.com/marketplace/actions/github-script) to run `core.setOutput()` directly
     - Familiar Javascript syntax ➕
     - Heavy on dependencies ➖
