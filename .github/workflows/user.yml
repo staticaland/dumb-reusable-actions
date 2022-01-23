@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Dotenv Action
         uses: falti/dotenv-action@v0.2.7
 
