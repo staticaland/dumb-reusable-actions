@@ -2,7 +2,7 @@ Here are some ways to pass variables from caller workflow to reusable workflows 
 
 - Using [Dotenv Action](https://github.com/marketplace/actions/dotenv-action)
 - Using a shell script with `::set-output`
-- Using the [GitHub Script Action] to run `core.setOutput()` directly
+- Using the [GitHub Script Action](https://github.com/marketplace/actions/github-script) to run `core.setOutput()` directly
 
 Readability and developer ergonomics should be taken into consideration.
 
