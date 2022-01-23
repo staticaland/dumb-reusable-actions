@@ -8,7 +8,7 @@ jobs:
 
   dotenv:
 
-    name: Dotenv
+    name: Load dotenv variables
     runs-on: ubuntu-latest
 
     outputs:
