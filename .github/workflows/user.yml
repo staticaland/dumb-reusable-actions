@@ -77,6 +77,11 @@ jobs:
       version: "1.0"
       author: "Mickey Mouse"
 
+    steps:
+      - name: Use static output variables
+        id: script
+        run: true
+
 
   call_workflow_with_dotenv_outputs:
 
