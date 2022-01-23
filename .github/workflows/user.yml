@@ -26,8 +26,8 @@ jobs:
           log-variables: true
 
 
-  call-workflow-passing-data:
+  call-workflow-with-dotenv:
     needs: dotenv
-    uses: staticaland/dumb-reusable-actions/.github/workflows/reuse-me.yml@main
+    uses: staticaland/dumb-reusable-actions/.github/workflows/reusable-workflow.yml@main
     with:
       author: ${{ needs.dotenv.outputs.author }}
