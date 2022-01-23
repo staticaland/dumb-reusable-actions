@@ -45,6 +45,29 @@ jobs:
         run: .github/workflows/set_output_variables
 
 
+  action_script_outputs:
+
+    name: Load Action script output variables
+    runs-on: ubuntu-latest
+
+    outputs:
+      version: ${{ steps.action_script.outputs.version }}
+      author: ${{ steps.action_script.outputs.author }}
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Action script for output variables
+        id: action_script
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.setOutput('version', "1.0")
+            core.setOutput('author', "Mickey Mouse")
+
+
   call_workflow_with_dotenv_outputs:
 
     needs: dotenv_outputs
@@ -67,3 +90,15 @@ jobs:
 
     with:
       author: ${{ needs.script_outputs.outputs.author }}
+
+
+  call_workflow_with_action_script_outputs:
+
+    needs: action_script_outputs
+
+    name: Call reusable workflow with Action script output variables
+
+    uses: staticaland/dumb-reusable-actions/.github/workflows/reusable-workflow.yml@main
+
+    with:
+      author: ${{ needs.action_script_outputs.outputs.author }}
