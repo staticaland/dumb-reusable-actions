@@ -9,7 +9,7 @@ This is dumb. We need some way to set variables.
 Here are some ways to pass variables from caller workflow to reusable workflows by using outputs.
 
 - Using [Dotenv Action](https://github.com/marketplace/actions/dotenv-action)
-    - The `.env` can be used locally ➕
+    - The `.env` file can be used locally ➕
     - Heavy on dependencies ➖
 - Using a shell script with `::set-output`
     - Ugly syntax which decreases readability ➖
