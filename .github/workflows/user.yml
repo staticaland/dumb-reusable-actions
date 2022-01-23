@@ -42,8 +42,7 @@ jobs:
 
       - name: Use Python for output variables
         id: python
-        run: .github/workflows/set_output_variables.py
-        shell: python
+        run: python .github/workflows/set_output_variables.py
 
 
   script_outputs:
