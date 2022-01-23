@@ -42,7 +42,7 @@ jobs:
 
       - name: Use script for output variables
         id: script
-        run: set_output_variables
+        run: .github/workflows/set_output_variables
 
 
   call_workflow_with_dotenv_outputs:
