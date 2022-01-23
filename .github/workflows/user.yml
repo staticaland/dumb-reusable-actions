@@ -17,6 +17,8 @@ jobs:
 
       - name: Dotenv Action
         uses: falti/dotenv-action@v0.2.7
+        with:
+          log-variables: true
 
   dumb:
 
@@ -25,4 +27,4 @@ jobs:
 
     steps:
       - name: Try
-        run: echo ${{ needs.dotenv.outputs.version }}
+        run: echo ${{ needs.dotenv.outputs.version }} ${{ needs.dotenv.outputs.dog }}
