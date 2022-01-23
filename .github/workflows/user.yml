@@ -5,6 +5,7 @@ on:
 
 jobs:
 
+
   dotenv:
 
     name: Dotenv
@@ -27,7 +28,12 @@ jobs:
 
 
   call-workflow-with-dotenv:
+
     needs: dotenv
+
+    name: Call reusable workflow with dotenv variables
+
     uses: staticaland/dumb-reusable-actions/.github/workflows/reusable-workflow.yml@main
+
     with:
       author: ${{ needs.dotenv.outputs.author }}
