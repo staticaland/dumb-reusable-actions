@@ -5,9 +5,9 @@ on:
 
 jobs:
 
-  dotenv:
+  dotenv_outputs:
 
-    name: Load dotenv variables
+    name: Load dotenv output variables
     runs-on: ubuntu-latest
 
     outputs:
@@ -19,19 +19,51 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Dotenv Action
+      - name: Use dotenv for output variables
         id: env
         uses: falti/dotenv-action@v0.2.7
         with:
           log-variables: true
 
-  call-workflow-with-dotenv:
 
-    needs: dotenv
+  script_outputs:
 
-    name: Call reusable workflow with dotenv variables
+    name: Load script output variables
+    runs-on: ubuntu-latest
+
+    outputs:
+      version: ${{ steps.script.outputs.version }}
+      author: ${{ steps.script.outputs.author }}
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use script for output variables
+        id: script
+        run: set_output_variables
+
+
+  call_workflow_with_dotenv_outputs:
+
+    needs: dotenv_outputs
+
+    name: Call reusable workflow with dotenv output variables
 
     uses: staticaland/dumb-reusable-actions/.github/workflows/reusable-workflow.yml@main
 
     with:
       author: ${{ needs.dotenv.outputs.author }}
+
+
+  call_workflow_with_script_outputs:
+
+    needs: script_outputs
+
+    name: Call reusable workflow with script output variables
+
+    uses: staticaland/dumb-reusable-actions/.github/workflows/reusable-workflow.yml@main
+
+    with:
+      author: ${{ needs.script_outputs.outputs.author }}

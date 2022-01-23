@@ -1,0 +1,2 @@
+echo "::set-output name=version::1.0"
+echo "::set-output name=author::Mickey Mouse"
