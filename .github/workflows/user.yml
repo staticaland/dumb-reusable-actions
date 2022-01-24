@@ -66,8 +66,6 @@ jobs:
 
   action_script_outputs:
 
-    if: ${{ !env.ACT }}
-
     name: Load Action script output variables
     runs-on: ubuntu-latest
 
