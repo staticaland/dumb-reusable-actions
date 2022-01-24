@@ -1,0 +1,5 @@
+{
+    "version": "1.0",
+    "author": "Donald Duck",
+    "allow_deploy_to_prod": "true"
+}
