@@ -42,7 +42,8 @@ jobs:
 
       - name: Use Python for output variables
         id: python
-        run: python .github/workflows/set_output_variables.py
+        working-directory: .github/workflows
+        run: python set_output_variables.py
 
 
   script_outputs:
@@ -143,7 +144,6 @@ jobs:
     needs: python_outputs
 
     name: Call reusable workflow with Python output variables
-    working-directory: .github/workflows
     uses: staticaland/dumb-reusable-actions/.github/workflows/reusable-workflow.yml@main
 
     with:
