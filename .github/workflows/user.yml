@@ -114,9 +114,11 @@ jobs:
     with:
       author: ${{ needs.dotenv_outputs.outputs.author }}
       should: >-
-          github.event_name == 'push' &&
-          github.ref == 'refs/heads/main' &&
-          contains(github.event.head_commit.message, '[prod]')
+          ${{
+            github.event_name == 'push' &&
+            github.ref == 'refs/heads/main' &&
+            contains(github.event.head_commit.message, '[prod]')
+          }}
 
 
   call_workflow_with_script_outputs:
@@ -130,9 +132,11 @@ jobs:
     with:
       author: ${{ needs.script_outputs.outputs.author }}
       should: >-
-          github.event_name == 'push' &&
-          github.ref == 'refs/heads/main' &&
-          contains(github.event.head_commit.message, '[prod]')
+          ${{
+            github.event_name == 'push' &&
+            github.ref == 'refs/heads/main' &&
+            contains(github.event.head_commit.message, '[prod]')
+          }}
 
 
   call_workflow_with_action_script_outputs:
@@ -146,9 +150,11 @@ jobs:
     with:
       author: ${{ needs.action_script_outputs.outputs.author }}
       should: >-
-          github.event_name == 'push' &&
-          github.ref == 'refs/heads/main' &&
-          contains(github.event.head_commit.message, '[prod]')
+          ${{
+            github.event_name == 'push' &&
+            github.ref == 'refs/heads/main' &&
+            contains(github.event.head_commit.message, '[prod]')
+          }}
 
 
   call_workflow_with_python_outputs:
@@ -161,9 +167,11 @@ jobs:
     with:
       author: ${{ needs.python_outputs.outputs.author }}
       should: >-
-          github.event_name == 'push' &&
-          github.ref == 'refs/heads/main' &&
-          contains(github.event.head_commit.message, '[prod]')
+          ${{
+            github.event_name == 'push' &&
+            github.ref == 'refs/heads/main' &&
+            contains(github.event.head_commit.message, '[prod]')
+          }}
 
   
   call_workflow_with_static_outputs:
@@ -177,6 +185,8 @@ jobs:
     with:
       author: ${{ needs.static_outputs.outputs.author }}
       should: >-
-          github.event_name == 'push' &&
-          github.ref == 'refs/heads/main' &&
-          contains(github.event.head_commit.message, '[prod]')
+          ${{
+            github.event_name == 'push' &&
+            github.ref == 'refs/heads/main' &&
+            contains(github.event.head_commit.message, '[prod]')
+          }}
