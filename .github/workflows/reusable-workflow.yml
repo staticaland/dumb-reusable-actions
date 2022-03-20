@@ -10,9 +10,15 @@ on:
         required: true
         type: string
 
+      should:
+        required: true
+        type: boolean
+
 jobs:
 
   reuse:
+
+    if: should
 
     runs-on: ubuntu-latest
 
