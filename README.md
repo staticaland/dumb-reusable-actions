@@ -33,3 +33,7 @@ Readability and developer ergonomics should be taken into consideration.
 [act](https://github.com/nektos/act) [does not support reusable workflows](https://github.com/nektos/act/issues/826).
 
 The `.env` file is loaded into outputs by using the nifty [Dotenv Action](https://github.com/marketplace/actions/dotenv-action). It uses [dotenv](https://www.npmjs.com/package/dotenv) under the hood.
+
+## Considerations
+
+Get rid of the shackles and use https://jsonnet.org/ or https://cuelang.org/ instead.
